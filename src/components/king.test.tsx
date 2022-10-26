@@ -1,8 +1,5 @@
 import { screen, render } from "@testing-library/react";
-import { joffreyData } from "../models/listOfCharacters";
 import { King } from "./King";
-
-export {};
 
 describe("Given King Component", () => {
     describe("When we render the component...", () => {
@@ -11,10 +8,11 @@ describe("Given King Component", () => {
                 <King
                     name={"Rey Paco"}
                     family={"Los Pacos"}
-                    age={"40"}
-                    kingdomYears={"10"}
-                    imageURL={"paco.png"}
-                    status={"alive"}
+                    age={40}
+                    status={true}
+                    imageURL={"./paco.jpg"}
+                    kingdomYears={15}
+                    customMessage={"Vais a morir todos"}
                 />
             );
 
@@ -26,10 +24,11 @@ describe("Given King Component", () => {
                 <King
                     name={"Rey Paco"}
                     family={"Los Pacos"}
-                    age={"40"}
-                    kingdomYears={"10"}
-                    imageURL={"paco.png"}
-                    status={"alive"}
+                    age={40}
+                    status={true}
+                    imageURL={"./paco.jpg"}
+                    kingdomYears={15}
+                    customMessage={"Vais a morir todos"}
                 />
             );
 

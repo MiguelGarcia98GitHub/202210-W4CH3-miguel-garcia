@@ -3,17 +3,18 @@ export interface ICharacter {
     family: string;
     age: number;
     status: boolean;
-    customMessage: string;
     imageURL: string;
 }
 
 export interface IKing extends ICharacter {
     kingdomYears: number;
+    customMessage: "Vais a morir todos";
 }
 
 export interface IWarrior extends ICharacter {
     weapon: string;
     dexterity: number;
+    customMessage: "Primero golpeo y luego pregunto";
 }
 
 export interface IAdvisor extends ICharacter {
