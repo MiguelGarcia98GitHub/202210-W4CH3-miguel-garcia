@@ -1,19 +1,22 @@
-export const joffreyData = [
-    "Joffrey",
-    "Baratheon",
-    "54",
-    "4",
-    "./joffrey.jpg",
-    "alive",
-];
-export const jaimeData = [
-    "Jaime",
-    "Lannister",
-    "./jaime.jpg",
-    "40",
-    "sword",
-    7,
-];
-export const daenerysData = ["Daenerys", "Targaryen", "30", "sword", "6"];
-export const tyrionData = ["Tyrion", "Lannister", "36", "Pepe"];
-export const bronnData = ["Bronn", "", "28", "Pepe", "8"];
+import { IKing, IWarrior } from "./interfaces";
+
+export const joffreyData: IKing = {
+    name: "Joffrey",
+    family: "Baratheon",
+    age: 28,
+    status: true,
+    imageURL: "./joffrey.jpg",
+    kingdomYears: 10,
+    customMessage: "Vais a morir todos",
+};
+
+export const jaimeData: IWarrior = {
+    name: "Jaime",
+    family: "Lannister",
+    age: 40,
+    status: true,
+    imageURL: "./jaime.jpg",
+    weapon: "sword",
+    dexterity: 8,
+    customMessage: "Primero golpeo y luego pregunto",
+};

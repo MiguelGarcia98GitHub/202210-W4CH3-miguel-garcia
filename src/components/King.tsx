@@ -1,29 +1,37 @@
+import { useState } from "react";
+import { IKing } from "../models/interfaces";
+
 export function King({
     name,
     family,
     age,
-    kingdomYears,
-    imageURL,
     status,
-}: {
-    name: string;
-    family: string;
-    age: string;
-    kingdomYears: string;
-    imageURL: string;
-    status: string;
-}) {
-    const handleClick = () => {
-        const talkMessage = "Rey: Vais a morir todos";
-        console.log(talkMessage);
-        const comunicacionesHTMLElement: HTMLElement =
-            document.querySelector(".box__wrapper")!;
-        comunicacionesHTMLElement.innerHTML = `<div class="box__container">
-            <p class="box__container__message">Rey: Vais a morir todos</p>
+    customMessage,
+    imageURL,
+    kingdomYears,
+}: IKing) {
+    const [currentStatus, setCurrentStatus] = useState(status);
+
+    const handleSpeak = () => {
+        const comunicacionesHTMLElement: HTMLElement = document.querySelector(
+            `#${name}`
+        )!;
+        comunicacionesHTMLElement.style.display = "block";
+        comunicacionesHTMLElement.innerHTML = `<div class="box__container" id=${name}>
+            <p class="box__container__message">${name}: ${customMessage} </p>
         </div>`;
         setTimeout(() => {
-            comunicacionesHTMLElement.innerHTML = "";
+            comunicacionesHTMLElement.style.display = "none";
         }, 2000);
+    };
+
+    const handleDeath = () => {
+        setCurrentStatus(false);
+        const imageHTMLElement: HTMLElement = document.querySelector(
+            `#${family}`
+        )!;
+
+        imageHTMLElement.style.transform = "rotate(180deg)";
     };
 
     return (
@@ -33,6 +41,7 @@ export function King({
                     src={imageURL}
                     alt={name}
                     className="character__picture card-img-top"
+                    id={family}
                 />
                 <div className="card-body">
                     <h2 className="character__name card-title h4">
@@ -43,7 +52,7 @@ export function King({
                             <li>Edad: {age} años</li>
                             <li>
                                 Estado:
-                                {status === "alive" ? (
+                                {currentStatus ? (
                                     <i className="fas fa-thumbs-up"></i>
                                 ) : (
                                     <i className="fas fa-thumbs-down"> </i>
@@ -63,11 +72,14 @@ export function King({
                         <div className="character__actions">
                             <button
                                 className="character__action btn"
-                                onClick={handleClick}
+                                onClick={handleSpeak}
                             >
                                 habla
                             </button>
-                            <button className="character__action btn">
+                            <button
+                                className="character__action btn"
+                                onClick={handleDeath}
+                            >
                                 muere
                             </button>
                         </div>
@@ -75,7 +87,7 @@ export function King({
                 </div>
                 <i className="emoji">👑</i>
             </div>
-            <div className="box__wrapper"></div>
+            <div className="box__wrapper" id={name}></div>
         </li>
     );
 }

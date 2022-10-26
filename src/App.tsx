@@ -1,6 +1,7 @@
 import { King } from "./components/King";
 import { Container } from "./components/Container";
-import { joffreyData } from "./models/listOfCharacters";
+import { jaimeData, joffreyData } from "./models/listOfCharacters";
+import { Warrior } from "./components/Warrior";
 
 function App() {
     return (
@@ -10,12 +11,23 @@ function App() {
                 children={
                     <>
                         <King
-                            name={joffreyData[0]}
-                            family={joffreyData[1]}
-                            age={joffreyData[2]}
-                            kingdomYears={joffreyData[3]}
-                            imageURL={joffreyData[4]}
-                            status={joffreyData[5]}
+                            name={joffreyData.name}
+                            family={joffreyData.family}
+                            age={joffreyData.age}
+                            status={joffreyData.status}
+                            customMessage={joffreyData.customMessage}
+                            kingdomYears={joffreyData.kingdomYears}
+                            imageURL={joffreyData.imageURL.toString()}
+                        />
+                        <Warrior
+                            name={jaimeData.name}
+                            family={jaimeData.family}
+                            age={jaimeData.age}
+                            status={jaimeData.status}
+                            imageURL={jaimeData.imageURL}
+                            weapon={jaimeData.weapon}
+                            dexterity={jaimeData.dexterity}
+                            customMessage={jaimeData.customMessage}
                         />
                     </>
                 }
