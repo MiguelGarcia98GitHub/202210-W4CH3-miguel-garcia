@@ -10,12 +10,12 @@ function App() {
                 children={
                     <>
                         <King
-                            name={joffreyData[0]}
-                            family={joffreyData[1]}
-                            age={joffreyData[2]}
-                            kingdomYears={joffreyData[3]}
-                            imageURL={joffreyData[4]}
-                            status={joffreyData[5]}
+                            name={joffreyData.name}
+                            family={joffreyData.family}
+                            age={joffreyData.age.toString()}
+                            kingdomYears={joffreyData.kingdomYears.toString()}
+                            imageURL={joffreyData.imageURL.toString()}
+                            status={joffreyData.status ? "alive" : "dead"}
                         />
                     </>
                 }
