@@ -64,12 +64,8 @@ export function Warrior({
                         </div>
                         <div className="character__overlay">
                             <ul className="list-unstyled">
-                                {/* <li>Años de reinado: {kingdomYears} </li> */}
                                 <li>Arma: {weapon}</li>
                                 <li>Destreza: {dexterity} </li>
-                                {/* <li>Peloteo: X</li> */}
-                                {/* <li>Asesora a: {advisedPerson} </li> */}
-                                {/* <li>Sirve a: X</li> */}
                             </ul>
                             <div className="character__actions">
                                 <button
